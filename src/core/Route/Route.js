@@ -19,7 +19,7 @@ const Route = (props) => {
 };
 
 Route.propTypes = {
-  view: PropTypes.element.isRequired,
+  view: PropTypes.func.isRequired,
 };
 
 export default Route;

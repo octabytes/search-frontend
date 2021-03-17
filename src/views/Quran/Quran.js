@@ -7,9 +7,10 @@ const Quran = (props) => {
   return (
     <div>
       {props.ayahList.map((ayah) => (
-        <Ayah ayah={ayah} />
+        <Ayah key={ayah.id} ayah={ayah} />
       ))}
-      <Pagination />
+
+      {props.ayahList.length === 30 && <Pagination />}
     </div>
   );
 };

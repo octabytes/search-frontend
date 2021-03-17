@@ -24,14 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Hadith = () => {
+const Hadith = (props) => {
   const classes = useStyles();
   const fontClass =
     "language" === "english" ? classes.englishFont : classes.arabicFont;
 
   return (
     <div>
-      {hadithList.map((hadith) => (
+      {props.hadithList.map((hadith) => (
         <div key={hadith.id}>
           <Chapter chapter={hadith.chapter} />
 
@@ -39,7 +39,8 @@ const Hadith = () => {
             <Grid container spacing={3}>
               <Grid item xs={6}>
                 <Typography className={fontClass}>
-                  {hadith.text[language]}
+                  {/* {hadith.text[language]} */}
+                  {hadith.text.english}
                 </Typography>
                 <br />
                 <Typography variant="body2">
@@ -63,8 +64,7 @@ const Hadith = () => {
           </Paper>
         </div>
       ))}
-
-      <Pagination />
+      {props.hadithList.length === 30 && <Pagination />}
     </div>
   );
 };

@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Book = () => {
+const Book = (props) => {
   const classes = useStyles();
 
   return (
     <div>
-      {bookList.map((book) => (
+      {props.bookList.map((book) => (
         <Paper className={classes.container} key={book.number}>
           <Grid container spacing={2}>
             <Grid item xs={6}>

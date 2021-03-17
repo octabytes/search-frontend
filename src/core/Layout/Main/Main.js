@@ -5,7 +5,7 @@ const Main = (props) => {
   return (
     <div>
       <SearchAppBar />
-      <main>{props.children}</main>
+      <main style={{ margin: 16 }}>{props.children}</main>
     </div>
   );
 };
