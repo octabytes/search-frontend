@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import config from "config";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -18,13 +19,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Book = (props) => {
+const Books = (props) => {
   const classes = useStyles();
+
+  const goToHadithBook = (number) => {
+    window.open(
+      `${config.hadith_website}collection/${props.collection}/book/${number}`
+    );
+  };
 
   return (
     <div>
       {props.bookList.map((book) => (
-        <Paper className={classes.container} key={book.number}>
+        <Paper
+          className={classes.container}
+          key={book.number}
+          onClick={() => goToHadithBook(book.number)}
+        >
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <Typography>{book.english}</Typography>
@@ -41,8 +52,9 @@ const Book = (props) => {
   );
 };
 
-Book.propTypes = {
+Books.propTypes = {
   bookList: PropTypes.array.isRequired,
+  collection: PropTypes.string.isRequired,
 };
 
-export default Book;
+export default Books;

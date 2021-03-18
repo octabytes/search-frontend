@@ -1,9 +1,11 @@
 const configuration = {
   dev: {
     quran_website: "https://quran-frontend-dot-islamicnet.appspot.com/",
+    hadith_website: "https://hadith-frontend-dot-islamicnet.appspot.com/",
   },
   prod: {
     quran_website: "https://quran-frontend-dot-islamicnet.appspot.com/",
+    hadith_website: "https://hadith-frontend-dot-islamicnet.appspot.com/",
   },
 };
 

@@ -24,11 +24,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Chapter = ({ chapter }) => {
+const BookAndChapter = ({ book, chapter }) => {
   const classes = useStyles();
 
   return (
     <Paper className={classes.chapter} elevation={5}>
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <Typography className={classes.englishFont}>
+            {book.english}
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography className={classes.arabicFont}>{book.urdu}</Typography>
+        </Grid>
+      </Grid>
       <Grid container spacing={3}>
         <Grid item xs={6}>
           <Typography className={classes.englishFont}>
@@ -43,8 +53,9 @@ const Chapter = ({ chapter }) => {
   );
 };
 
-Chapter.propTypes = {
+BookAndChapter.propTypes = {
   chapter: PropTypes.object.isRequired,
+  book: PropTypes.object.isRequired,
 };
 
-export default Chapter;
+export default BookAndChapter;

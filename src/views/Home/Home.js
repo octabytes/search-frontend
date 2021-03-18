@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Book from "views/HadithCollection/Book";
+import Books from "views/HadithCollection/Books";
 import Hadith from "views/HadithCollection/Hadith";
 import Quran from "views/Quran";
 import Surahs from "views/Quran/Surahs";
@@ -25,11 +25,11 @@ const Home = () => {
   }
 
   if (search.type === "single_hadith") {
-    return <Hadith hadithList={search.data} />;
+    return <Hadith hadith={search.data} />;
   }
 
   if (search.type === "hadith_books") {
-    return <Book bookList={search.data} />;
+    return <Books collection={search.nlp.collection} bookList={search.data} />;
   }
 
   return <h1>Default Home</h1>;

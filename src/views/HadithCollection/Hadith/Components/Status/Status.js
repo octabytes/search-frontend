@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
 
 const Status = ({ isSahih }) => {
   if (isSahih) {
     if ("language" === "urdu") {
-      return <Typography>صحیح</Typography>;
+      return <span>صحیح</span>;
     } else {
-      return <Typography>Sahih</Typography>;
+      return <span>Sahih</span>;
     }
   } else {
     if ("language" === "urdu") {
-      return <Typography>ضعيف</Typography>;
+      return <span>ضعيف</span>;
     } else {
-      return <Typography>Zaeaf</Typography>;
+      return <span>Zaeaf</span>;
     }
   }
 };
