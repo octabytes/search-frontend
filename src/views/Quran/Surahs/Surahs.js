@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import config from "config";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +23,7 @@ const Surahs = ({ names }) => {
   const classes = useStyles();
 
   const goToSurah = (number) => {
-    console.log("open surah");
+    window.open(config.quran_website + number);
   };
 
   return (

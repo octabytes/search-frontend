@@ -13,11 +13,11 @@ const Home = () => {
   }
 
   if (search.type === "single_ayah") {
-    return <Quran ayahList={[search.data]} />;
+    return <Quran data={search.data} />;
   }
 
   if (search.type === "multi_ayah") {
-    return <Quran ayahList={search.data.ayahs} />;
+    return <Quran data={search.data} />;
   }
 
   if (search.type === "surah_list") {

@@ -4,6 +4,8 @@ let apiURL;
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   apiURL = "http://localhost:5000";
+} else {
+  apiURL = "https://search-api-dot-islamicnet.appspot.com/";
 }
 
 const API = axios.create({ baseURL: apiURL });
