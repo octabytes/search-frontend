@@ -8,6 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
+import { useSnackbar } from "notistack";
 import SearchAPI from "api/search";
 import AppActions from "store/actions/app_actions";
 import LanguageMenu from "./LanguageMenu";
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchAppBar = () => {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
   const userQuery = useRef("");
 
   const submitUserQuery = (evt) => {
@@ -97,11 +99,16 @@ const SearchAppBar = () => {
     const response = await SearchAPI(value);
     AppActions.setLoading(false);
 
-    if (!response.error) {
+    if (!response.error && !response.data.error) {
       console.log(response);
       AppActions.loadSearchData(response);
     } else {
-      console.error(response.error.message);
+      console.log(response);
+      if (response.error) {
+        enqueueSnackbar(response.error.message, { variant: "error" });
+      } else if (response.data.error) {
+        enqueueSnackbar(response.data.error.message, { variant: "error" });
+      }
     }
   };
 
