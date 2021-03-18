@@ -8,11 +8,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
-import MenuIcon from "@material-ui/icons/Menu";
-import DirectionsIcon from "@material-ui/icons/Directions";
 import SearchAPI from "api/search";
 import AppActions from "store/actions/app_actions";
+import LanguageMenu from "./LanguageMenu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -112,6 +110,7 @@ const SearchAppBar = () => {
           <Typography className={classes.title} variant="h6" noWrap>
             Search
           </Typography>
+          <LanguageMenu />
           <Paper component="form" className={classes.searchRoot}>
             <IconButton
               type="submit"

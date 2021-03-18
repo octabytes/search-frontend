@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Pagination from "./Components/Pagination";
+import { useSelector } from "react-redux";
 import BookAndChapter from "./Components/BookAndChapter";
 import Status from "./Components/Status";
 
@@ -26,8 +26,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Hadith = ({ hadith }) => {
   const classes = useStyles();
+  const language = useSelector((state) => state.app.language);
+
   const fontClass =
-    "english" === "english" ? classes.englishFont : classes.arabicFont;
+    language === "english" ? classes.englishFont : classes.arabicFont;
 
   return (
     <div>
@@ -37,8 +39,7 @@ const Hadith = ({ hadith }) => {
         <Grid container spacing={3}>
           <Grid item xs={6}>
             <Typography className={fontClass}>
-              {/* {hadith.text[language]} */}
-              {hadith.text.english}
+              {hadith.text[language]}
             </Typography>
             <br />
             <Typography variant="body2">

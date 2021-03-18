@@ -11,10 +11,13 @@ const useStyles = makeStyles((theme) => ({
   },
   itemLTR: {
     padding: theme.spacing(4),
+    fontSize: 20,
   },
   itemRTL: {
     padding: theme.spacing(4),
     direction: "rtl",
+    fontFamily: "'Lateef', cursive",
+    fontSize: 27,
   },
 }));
 
