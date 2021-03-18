@@ -1,6 +1,10 @@
 import store from "../store";
 
-import { LOAD_SEARCH_DATA, APP_SELECT_LANGUAGE } from "../reducers/app_reducer";
+import {
+  LOAD_SEARCH_DATA,
+  APP_SELECT_LANGUAGE,
+  SET_SEARCH_LOADING,
+} from "../reducers/app_reducer";
 
 const loadSearchData = (data) => {
   store.dispatch({
@@ -16,6 +20,13 @@ const selectLanguage = (language) => {
   });
 };
 
-const AppActions = { loadSearchData, selectLanguage };
+const setLoading = (loading) => {
+  store.dispatch({
+    type: SET_SEARCH_LOADING,
+    loading,
+  });
+};
+
+const AppActions = { loadSearchData, selectLanguage, setLoading };
 
 export default AppActions;

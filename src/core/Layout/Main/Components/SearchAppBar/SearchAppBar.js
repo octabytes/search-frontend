@@ -93,7 +93,9 @@ const SearchAppBar = () => {
   };
 
   const loadSearchData = async (value) => {
+    AppActions.setLoading(true);
     const response = await SearchAPI(value);
+    AppActions.setLoading(false);
 
     if (!response.error) {
       console.log(response);

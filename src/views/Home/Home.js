@@ -7,9 +7,14 @@ import Surahs from "views/Quran/Surahs";
 
 const Home = () => {
   const search = useSelector((state) => state.app.search);
+  const loading = useSelector((state) => state.app.loading);
 
   if (search === undefined) {
     return <h1>Type to search...</h1>;
+  }
+
+  if (loading) {
+    return <h1>Loading...</h1>;
   }
 
   if (search.type === "single_ayah") {
