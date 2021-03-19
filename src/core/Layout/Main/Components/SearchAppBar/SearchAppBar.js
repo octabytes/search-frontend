@@ -99,11 +99,13 @@ const SearchAppBar = () => {
     const response = await SearchAPI(value);
     AppActions.setLoading(false);
 
-    if (!response.error && !response.data.error) {
-      console.log(response);
-      AppActions.loadSearchData(response);
+    console.log(response);
+
+    if (!response.error) {
+      if (response.data && !response.data.error) {
+        AppActions.loadSearchData(response);
+      }
     } else {
-      console.log(response);
       if (response.error) {
         enqueueSnackbar(response.error.message, { variant: "error" });
       } else if (response.data.error) {

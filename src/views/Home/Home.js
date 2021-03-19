@@ -37,7 +37,7 @@ const Home = () => {
     return <Books collection={search.nlp.collection} bookList={search.data} />;
   }
 
-  return <h1>Default Home</h1>;
+  return <h1>Unable to understand query, type something else</h1>;
 };
 
 export default Home;
