@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Lateef', cursive",
     fontSize: 27,
   },
+  ayahEnd: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontSize: 20,
+    marginRight: 8,
+  },
 }));
 
 const Ayah = ({ ayah }) => {
@@ -38,6 +43,7 @@ const Ayah = ({ ayah }) => {
         </Grid>
         <Grid className={classes.itemRTL} item xs={6}>
           ({ayah.number}) - {ayah.content.arabic}
+          <span className={classes.ayahEnd}>&#1757;</span>
         </Grid>
       </Grid>
     </Paper>
