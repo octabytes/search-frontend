@@ -87,6 +87,12 @@ const SearchAppBar = () => {
 
   const submitUserQuery = (evt) => {
     evt.preventDefault();
+
+    if (!userQuery.current) {
+      enqueueSnackbar("Type something in search", { variant: "warning" });
+      return;
+    }
+
     loadSearchData(userQuery.current);
   };
 
