@@ -1,39 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { useHistory } from "react-router-dom";
+import config from "config";
 
-const Pagination = () => {
-  const history = useHistory();
-  const search = history.location.search;
-  let offset = 0;
-  if (search.length) {
-    offset = parseInt(search.replace("?offset=", ""));
-  }
-
+const Pagination = (props) => {
   const goToNextPage = () => {
-    const startFrom = offset + 30;
-    history.push(`/?offset=${startFrom}`);
-  };
-
-  const goToPrevPage = () => {
-    const startFrom = offset - 30;
-    history.push(`/?offset=${startFrom}`);
+    window.open(`${config.quran_website} ${props.surahNumber} ?offset=30`);
   };
 
   return (
     <div>
-      {offset > 0 && (
-        <Button onClick={goToPrevPage} startIcon={<ChevronLeftIcon />}>
-          Previous
-        </Button>
-      )}
       <Button onClick={goToNextPage} endIcon={<ChevronRightIcon />}>
         Next
       </Button>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  surahNumber: PropTypes.number.isRequired,
 };
 
 export default Pagination;

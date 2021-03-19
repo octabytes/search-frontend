@@ -55,7 +55,9 @@ const Quran = (props) => {
       {data.ayahs &&
         data.ayahs.map((ayah) => <Ayah key={ayah.id} ayah={ayah} />)}
 
-      {data.ayahs && data.ayahs.length === 30 && <Pagination />}
+      {data.ayahs && data.ayahs.length === 30 && (
+        <Pagination surahNumber={data.surah.number} />
+      )}
     </div>
   );
 };
