@@ -104,6 +104,8 @@ const SearchAppBar = () => {
     if (!response.error) {
       if (response.data && !response.data.error) {
         AppActions.loadSearchData(response);
+      } else {
+        AppActions.loadSearchData({ type: "not-found" });
       }
     } else {
       if (response.error) {
