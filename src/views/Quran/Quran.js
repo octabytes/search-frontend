@@ -56,7 +56,10 @@ const Quran = (props) => {
         data.ayahs.map((ayah) => <Ayah key={ayah.id} ayah={ayah} />)}
 
       {data.ayahs && data.ayahs.length === 30 && (
-        <Pagination surahNumber={data.surah.number} />
+        <Pagination
+          surahNumber={data.surah.number}
+          lastAyahNumber={data.ayahs[data.ayahs.length - 1].number}
+        />
       )}
     </div>
   );

@@ -6,7 +6,9 @@ import config from "config";
 
 const Pagination = (props) => {
   const goToNextPage = () => {
-    window.open(`${config.quran_website}${props.surahNumber}?offset=30`);
+    window.open(
+      `${config.quran_website}${props.surahNumber}?offset=${props.lastAyahNumber}`
+    );
   };
 
   return (
@@ -20,6 +22,7 @@ const Pagination = (props) => {
 
 Pagination.propTypes = {
   surahNumber: PropTypes.number.isRequired,
+  lastAyahNumber: PropTypes.number.isRequired,
 };
 
 export default Pagination;
